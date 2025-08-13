@@ -17,7 +17,7 @@ function Contato(body) {
   this.contato = null;
 }
 
-Contato.prototype.register = async () => {
+Contato.prototype.register = async function () {
   this.valida();
 
   if (this.errors.length > 0) return;
@@ -27,12 +27,13 @@ Contato.prototype.register = async () => {
 Contato.prototype.valida = function () {
   this.cleanUp();
 
-  // Validando o e-mail
   if (this.body.email && !validator.isEmail(this.body.email)) {
     this.errors.push("E-mail inválido");
   }
-  if (!this.body.nome) this.errors.push("Nome é um campo obrigatório");
-  if (!this.body.nome && !this.body.telefone) {
+  if (!this.body.nome) {
+    this.errors.push("Nome é um campo obrigatório");
+  }
+  if (!this.body.email && !this.body.telefone) {
     this.errors.push("No mínimo preencha um contato (e-mail ou telefone)");
   }
 };
@@ -75,7 +76,7 @@ Contato.buscaContatos = async function (id) {
 
 Contato.delete = async function (id) {
   if (typeof id !== "string") return;
-  const contato = await ContatoModel.findOneAndDelete({ id: id });
+  const contato = await ContatoModel.findOneAndDelete({ _id: id });
   return contato;
 };
 

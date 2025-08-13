@@ -61,7 +61,7 @@ class Login {
     }
 
     // Validando a senha
-    if (this.body.password.length() < 3 || this.body.password.length() > 50) {
+    if (this.body.password.length < 3 || this.body.password.length > 50) {
       this.errors.push("A senha precisa conter entre 3 e 50 caracteres");
     }
   }
