@@ -21,7 +21,7 @@ Contato.prototype.register = async function () {
   this.valida();
 
   if (this.errors.length > 0) return;
-  this.Contato = await ContatoModel.create(this.body);
+  this.contato = await ContatoModel.create(this.body);
 };
 
 Contato.prototype.valida = function () {
