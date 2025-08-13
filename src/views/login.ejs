@@ -12,8 +12,8 @@
 
       <div class="row">
         <div class="col-lg my-5">
-          <h4>Faça seu cadastro</h4>
-          <p>Se você ainda não tem conta, preencha o formulário abaixo:</p>
+          <h4>Cadastre-se</h4>
+          <p>Para cadastrar-se preencha o formulário</p>
 
           <form class="form-cadastro" action="/login/register" method="POST">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
@@ -25,16 +25,14 @@
               <label>Sua senha</label>
               <input type="password" class="form-control" name="password" />
             </div>
-            <button type="submit" class="btn btn-primary">
-              Criar minha conta
-            </button>
+            <button type="submit" class="btn btn-primary">Cadastre-se</button>
           </form>
         </div>
 
         <div class="col-lg my-5">
-          <h4>Faça seu login</h4>
+          <h4>Login</h4>
 
-          <p>Se você já tem uma conta, faça login abaixo:</p>
+          <p>Se você já tem uma conta, faça login abaixo</p>
 
           <form class="form-login" action="/login/login" method="POST">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
