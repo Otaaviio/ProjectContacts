@@ -9,7 +9,6 @@ const { loginRequired } = require("./src/middlewares/middleware");
 
 // Rotas da home
 route.get("/", homeController.index);
-route.get("/index", homeController.index);
 
 // Rotas de login
 route.get("/login/index", loginController.index);
@@ -22,5 +21,6 @@ route.get("/contato/index", loginRequired, contatoController.index);
 route.post("/contato/register", loginRequired, contatoController.register);
 route.get("/contato/index/:id", loginRequired, contatoController.editIndex);
 route.post("/contato/edit/:id", loginRequired, contatoController.edit);
+route.get("/contato/delete/:id", loginRequired, contatoController.delete);
 
 module.exports = route;

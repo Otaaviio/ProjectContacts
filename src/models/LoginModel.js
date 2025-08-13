@@ -19,7 +19,7 @@ class Login {
   async login() {
     this.valida();
     if (this.errors.length > 0) return;
-    const user = await LoginModel.findOne({ email: this.body.email });
+    this.user = await LoginModel.findOne({ email: this.body.email });
 
     if (!this.user) {
       this.errors.push("Usuário inexistente");
@@ -69,7 +69,7 @@ class Login {
   cleanUp() {
     for (const key in this.body) {
       if (typeof this.body[key] !== "string") {
-        this.body[key] == "";
+        this.body[key] = "";
       }
     }
 

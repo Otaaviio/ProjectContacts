@@ -1,5 +1,4 @@
 const Contato = require("../models/ContatoModel");
-const contato = require("../models/ContatoModel");
 
 exports.index = (req, res) => {
   res.render("contato", {
@@ -59,4 +58,15 @@ exports.edit = async (req, res) => {
     console.log(e);
     res.render("404");
   }
+};
+
+exports.delete = async (req, res) => {
+  if (!req.params.id) return res.render("404");
+
+  const contato = await Contato.delete(req.params.id);
+  if (!contato) return req.render("404");
+
+  req.flash("success", "Contato deletado com sucesso");
+  req.session.save(() => res.redirect("back"));
+  return;
 };
