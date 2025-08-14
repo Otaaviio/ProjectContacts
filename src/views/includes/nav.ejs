@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Agenda</a>
+  <% if (user) { %>
+  <span class="navbar-brand">| <%= user.email %></span>
+  <% } %>
   <button
     class="navbar-toggler"
     type="button"
