@@ -8,7 +8,7 @@ exports.index = (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    const contato = new Contato(req.body);
+    const contato = new Contato({ ...req.body, user: req.session.user._id });
     await contato.register();
 
     if (contato.errors.length > 0) {
